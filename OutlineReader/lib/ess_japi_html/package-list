@@ -1,0 +1,6 @@
+com.essbase.api.base
+com.essbase.api.dataquery
+com.essbase.api.datasource
+com.essbase.api.domain
+com.essbase.api.metadata
+com.essbase.api.session
