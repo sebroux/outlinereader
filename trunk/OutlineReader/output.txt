@@ -1,0 +1,33 @@
+usage: java -jar ReadOutline.jar [OPTIONS]
+DESCRIPTION:
+Displays outline properties: parent, member, alias for each alias table,
+children count, consolidation, formula, level, generation, UDAs,
+attributes and comments
+OPTIONS:
+ -a,--essapp <application>                           application name
+ -d,--essdb <database>                               database name
+ -e,--delimiter <delimiter>                          delimiter string -
+                                                     default is tab
+ -h,--help                                           display this help
+ -i,--indent                                         indent output
+ -m,--dimension <dimension>                          dimension name
+ -p,--esspwd <password>                              password
+ -s,--esssvr <server>                                Essbase server
+ -u,--essusr <user>                                  user login
+ -v,--essaps <http://ProviderServer:port/aps/JAPI>   Provider server URL -
+                                                     if not specified
+                                                     default URL is used
+                                                     http://EssbaseServer:
+                                                     13080/aps/JAPI
+REQUIREMENTS:
+JRE 1.5 or higher (current JRE version: 1.6.0_20)
+VERSION:
+version 1.2
+AUTHOR:
+Sebastien Roux <roux.sebastien@gmail.com>
+NOTES:
+Use at your own risk!
+You will be solely responsible for any damage
+to your computer system or loss of data
+that may result from the download
+or the use of the following application.

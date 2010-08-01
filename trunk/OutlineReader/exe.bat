@@ -1,0 +1,11 @@
+rem java -jar "C:\Documents and Settings\seb\Mes documents\NetBeansProjects\OutlineReader\dist\OutlineReader.jar" -u admin -p password -s localhost -a sample_u -d basic -i > output.txt
+
+rem java -jar "C:\Documents and Settings\seb\Mes documents\NetBeansProjects\OutlineReader\dist\OutlineReader.jar" -u admin -p password -s localhost -a cosstrat -d cosstrat -i -m "fonctions" > output.txt
+
+rem java -jar "C:\Documents and Settings\seb\Mes documents\NetBeansProjects\OutlineReader\dist\OutlineReader.jar" admin password sr-dev sample basic true > output.txt
+
+java -jar "C:\Documents and Settings\seb\Mes documents\NetBeansProjects\OutlineReader\dist\OutlineReader.jar" -h > output.txt
+
+rem java -jar "C:\Documents and Settings\seb\Mes documents\NetBeansProjects\OutlineReader\dist\OutlineReader.jar" -u admin -p password -s localhost -a cosstrat -d cosstrat -i -m "fonctions" -v "http://localhost:13080/aps/JAPI"> output.txt
+
+pause
