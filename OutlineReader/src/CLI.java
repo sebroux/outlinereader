@@ -177,7 +177,7 @@ public class CLI {
     /**
      * Display usage and help
      */
-    private final void displayHelp(Options options) {
+    private void displayHelp(Options options) {
 
         final String HELP_DESC = "DESCRIPTION:\n" + "Displays outline properties: "
                 + "parent, member, alias for each alias table, children count, "
@@ -197,7 +197,7 @@ public class CLI {
 
         HelpFormatter formatter = new HelpFormatter();
 
-        formatter.printHelp("java -jar ReadOutline.jar [OPTIONS]",
+        formatter.printHelp("java -jar ReadOutline.jar -s server -u user -a application -d database [OPTIONS]",
                 HELP_DESC + "OPTIONS:\n", options, HELP_REQU + HELP_VERS
                 + HELP_AUTH + HELP_NOTE);
         System.exit(0);
