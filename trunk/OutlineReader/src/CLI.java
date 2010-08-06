@@ -181,11 +181,12 @@ public class CLI {
 
         final String HELP_DESC = "DESCRIPTION:\n" + "Displays outline properties: "
                 + "parent, member, alias for each alias table, children count, "
-                + "consolidation, formula, level, generation, UDAs, attributes and comments" + "\n";
+                + "consolidation, data storage, formula, level, generation, UDAs, "
+                + "attributes and comments" + "\n";
 
-        final String HELP_REQU = "REQUIREMENTS:\n" + "JRE 1.5 or higher (current JRE version: " + JavaVersionDisplayApplet() + ")\n";
+        final String HELP_REQU = "REQUIREMENTS:\n" + "JRE 1.5.0.17 or higher (current JRE version: " + JavaVersionDisplayApplet() + ")\n";
 
-        final String HELP_VERS = "VERSION:\n" + "version 1.2\n";
+        final String HELP_VERS = "VERSION:\n" + "version 1.3\n";
 
         final String HELP_AUTH = "AUTHOR:\n" + "Sebastien Roux <roux.sebastien@gmail.com>\n";
 
@@ -197,7 +198,7 @@ public class CLI {
 
         HelpFormatter formatter = new HelpFormatter();
 
-        formatter.printHelp("java -jar ReadOutline.jar -s server -u user -a application -d database [OPTIONS]",
+        formatter.printHelp("java -jar ReadOutline.jar -s server -u user -p password -a application -d database [OPTIONS]",
                 HELP_DESC + "OPTIONS:\n", options, HELP_REQU + HELP_VERS
                 + HELP_AUTH + HELP_NOTE);
         System.exit(0);

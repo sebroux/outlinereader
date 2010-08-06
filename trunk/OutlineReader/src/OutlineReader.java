@@ -36,7 +36,6 @@ import java.util.Arrays;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 public class OutlineReader {
 
     private static String essUsr;
@@ -199,7 +198,8 @@ public class OutlineReader {
 
             // Header
             System.out.println("Dimension" + delim + "Parent" + delim + "Child" + delim + aliasHeader
-                    + delim + "Consolidation" + delim + "# Chidren"
+                    + delim + "Consolidation" + delim + "Data storage"
+                    + delim + "Two Pass" + delim + "Expense reporting" + delim + "# Chidren"
                     + delim + "Formula" + delim + "Level" + delim + "Generation"
                     + delim + "UDA" + delim + "Attribute" + delim + "Comment");
 
@@ -241,13 +241,11 @@ public class OutlineReader {
         String attribute = "";
         String indentation = "";
         String dim = "";
-        //String[] essProp;
         String delim = getDelimiter();
-
-        dim = getDimension().toLowerCase();
+        String storage = "";
         
         //Dimension
-        if (dim.equals("") || mbr.getDimensionName().toLowerCase().equals(dim)) {
+        if (getDimension().toLowerCase().equals("") || mbr.getDimensionName().toLowerCase().equals(getDimension().toLowerCase())) {
 
             //Indentation
             if (indent == true) {
@@ -282,7 +280,27 @@ public class OutlineReader {
                 essConso = mbr.getConsolidationType().stringValue().substring(0, 1);
             }
 
-            //essProp = mbr.getPropertyNames();
+            // Data storage
+            switch (mbr.getShareOption().intValue()) {
+                case 1:
+                    storage = "Never share";
+                    break;
+                case 2:
+                    storage = "Label only";
+                    break;
+                case 3:
+                    storage = "Shared member";
+                    break;
+                case 4:
+                    storage = "Dynamlic calc and store";
+                    break;
+                case 5:
+                    storage = "Dynamic calc";
+                    break;
+                default:
+                    storage = "Store data";
+                    break;
+            }
 
             //Formula
             if (mbr.getFormula() != null) {
@@ -328,9 +346,10 @@ public class OutlineReader {
             }
 
             //Output
-            System.out.println(mbr.getDimensionName() + delim + mbr.getParent() 
-                    + delim + essChild + delim + essAlias + delim + essConso
-                    + delim + mbr.getChildCount() + delim + essFormula + delim
+            System.out.println(mbr.getDimensionName() + delim + mbr.getParent()
+                    + delim + essChild + delim + essAlias + delim + essConso + delim + storage
+                    + delim + mbr.isTwoPassCalculationMember() + delim + mbr.isExpenseMember() + delim
+                    + mbr.getChildCount() + delim + essFormula + delim
                     + mbr.getLevelNumber() + delim + mbr.getGenerationNumber()
                     + delim + uda + delim + attribute + delim + mbr.getMemberComment());
 
