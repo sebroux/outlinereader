@@ -200,7 +200,7 @@ public class OutlineReader {
             System.out.println("Dimension" + delim + "Parent" + delim + "Child" + delim + aliasHeader
                     + delim + "Consolidation" + delim + "Data storage"
                     + delim + "Two Pass" + delim + "Expense reporting" + delim + "# Chidren"
-                    + delim + "Formula" + delim + "Level" + delim + "Generation"
+                    + delim + "Formula" + delim + "Solve order" + delim + "Level" + delim + "Generation"
                     + delim + "UDA" + delim + "Attribute" + delim + "Comment");
 
             IEssIterator dims = otl.getDimensions();
@@ -235,6 +235,7 @@ public class OutlineReader {
         String essChild = "";
         String essAlias = "";
         String essFormula = "";
+        String essSolveOrder = "";
         String[] essUda;
         String uda = "";
         IEssIterator essAttribute = null;
@@ -243,7 +244,10 @@ public class OutlineReader {
         String dim = "";
         String delim = getDelimiter();
         String storage = "";
-        
+
+        //mbr.getFormatString();
+
+
         //Dimension
         if (getDimension().toLowerCase().equals("") || mbr.getDimensionName().toLowerCase().equals(getDimension().toLowerCase())) {
 
@@ -308,6 +312,7 @@ public class OutlineReader {
                 essFormula = essFormula.replaceAll("\r", " ");
                 essFormula = essFormula.replaceAll("\n", " ");
                 essFormula = essFormula.replaceAll("\t", " ");
+                essSolveOrder = String.valueOf(mbr.getSolveOrder());
             }
 
             //UDA
@@ -349,7 +354,7 @@ public class OutlineReader {
             System.out.println(mbr.getDimensionName() + delim + mbr.getParent()
                     + delim + essChild + delim + essAlias + delim + essConso + delim + storage
                     + delim + mbr.isTwoPassCalculationMember() + delim + mbr.isExpenseMember() + delim
-                    + mbr.getChildCount() + delim + essFormula + delim
+                    + mbr.getChildCount() + delim + essFormula + delim + essSolveOrder + delim
                     + mbr.getLevelNumber() + delim + mbr.getGenerationNumber()
                     + delim + uda + delim + attribute + delim + mbr.getMemberComment());
 
