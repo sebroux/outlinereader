@@ -186,7 +186,7 @@ public class CLI {
 
         final String HELP_REQU = "REQUIREMENTS:\n" + "JRE 1.5.0.17 or higher (current JRE version: " + JavaVersionDisplayApplet() + ")\n";
 
-        final String HELP_VERS = "VERSION:\n" + "version 1.3\n";
+        final String HELP_VERS = "VERSION:\n" + "version 1.4 2011\n";
 
         final String HELP_AUTH = "AUTHOR:\n" + "Sebastien Roux <roux.sebastien@gmail.com>\n";
 
