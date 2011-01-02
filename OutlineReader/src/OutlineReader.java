@@ -103,7 +103,7 @@ public class OutlineReader {
         }
     }
 
-    public static boolean isIndent() {
+    public static boolean getIndent() {
         return indent;
     }
 
@@ -189,7 +189,7 @@ public class OutlineReader {
             if (l == 0) {
                 aliasHeader = "Alias (" + aliasTables[0] + ")";
             } else {
-                aliasHeader = aliasHeader + delim + " Alias (" + aliasTables[l] + ")";
+                aliasHeader = aliasHeader + delim + "Alias (" + aliasTables[l] + ")";
             }
         }
 
@@ -207,7 +207,6 @@ public class OutlineReader {
 
             for (int i = 0; i < dims.getCount(); i++) {
                 IEssDimension dim = (IEssDimension) dims.getAt(i);
-
                 listOutlineMembers_helper(dim.getDimensionRootMember());
             }
 
@@ -241,18 +240,14 @@ public class OutlineReader {
         IEssIterator essAttribute = null;
         String attribute = "";
         String indentation = "";
-        String dim = "";
         String delim = getDelimiter();
         String storage = "";
-
-        //mbr.getFormatString();
-
 
         //Dimension
         if (getDimension().toLowerCase().equals("") || mbr.getDimensionName().toLowerCase().equals(getDimension().toLowerCase())) {
 
             //Indentation
-            if (indent == true) {
+            if (getIndent() == true) {
 
                 for (int m = 2; m < mbr.getGenerationNumber(); m++) {
 
@@ -296,7 +291,7 @@ public class OutlineReader {
                     storage = "Shared member";
                     break;
                 case 4:
-                    storage = "Dynamlic calc and store";
+                    storage = "Dynamic calc and store";
                     break;
                 case 5:
                     storage = "Dynamic calc";
@@ -308,11 +303,12 @@ public class OutlineReader {
 
             //Formula
             if (mbr.getFormula() != null) {
-                essFormula = mbr.getFormula();
-                essFormula = essFormula.replaceAll("\r", " ");
-                essFormula = essFormula.replaceAll("\n", " ");
-                essFormula = essFormula.replaceAll("\t", " ");
-                essSolveOrder = String.valueOf(mbr.getSolveOrder());
+                //essFormula = mbr.getFormula();
+                essFormula = mbr.getFormula().replaceAll("[\r\n\t]", " ");
+
+                if (cube.getCubeType().stringValue().equals("ASO")) {
+                    essSolveOrder = String.valueOf(mbr.getSolveOrder());
+                }
             }
 
             //UDA
