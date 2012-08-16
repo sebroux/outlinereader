@@ -12,11 +12,12 @@ import java.util.Arrays;
  *
  * List outline properties
  *
+ * @version 1.4.1
  * @author Sebastien Roux
  * @mail roux.sebastien@gmail.com
  *
  * The MIT License
- * Copyright (c) 2010 Sébastien Roux
+ * Copyright (c) 2012 Sébastien Roux
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -94,7 +95,7 @@ public class OutlineReader {
         return essProvider;
     }
 
-    public static void setEssProvider(String essPwd) {
+    public static void setEssProvider(String essProvider) {
         if (essProvider == null) {
             // Default provider (APS) path
             OutlineReader.essProvider = "http://" + getEssSvr() + ":13080/aps/JAPI";
