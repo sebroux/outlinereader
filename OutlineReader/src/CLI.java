@@ -7,11 +7,12 @@ import org.apache.commons.cli.*;
  *
  * Parse and verify command line arguments, displays help content on error
  *
+ * @version 1.4.1
  * @author Sebastien Roux
  * @mail roux.sebastien@gmail.com
  *
  * The MIT License
- * Copyright (c) 2010 Sébastien Roux
+ * Copyright (c) 2012 Sébastien Roux
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -66,7 +67,7 @@ public class CLI {
         options.addOption(server);
 
         // add provider url option
-        Option provider = OptionBuilder.withArgName("http://ProviderServer:port/aps/JAPI").withLongOpt("essaps").hasArg().withDescription("Provider server URL - if not specified default URL is used http://EssbaseServer:13080/aps/JAPI").create("v");
+        Option provider = OptionBuilder.withArgName("http://ProviderServer:port/aps/JAPI").withLongOpt("essaps").hasArg().withDescription("Provider server URL - if not specified default URL is used http://<server>:13080/aps/JAPI").create("v");
         options.addOption(provider);
 
         // add application option
